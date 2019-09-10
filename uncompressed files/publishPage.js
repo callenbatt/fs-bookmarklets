@@ -1,4 +1,4 @@
-const PUBLISH_MESSAGE = 'Updated';
+const PUBLISH_MESSAGE = '';
 
 const check_publish = { 
     isPublishOptionAvailable: () => { 
@@ -36,7 +36,9 @@ async function clickPublishOption() {
 }
 async function clickPublishComplete() {
     if (await watch(check_publish.isPublishCompleteAvailable)) {
-        document.querySelector('textarea.fsAppModalDialogComment').value = PUBLISH_MESSAGE;
+        if (PUBLISH_MESSAGE != "") {
+            document.querySelector('textarea.fsAppModalDialogComment').value = PUBLISH_MESSAGE;
+        }
         document.querySelector('button.fsAppModalCompleteButton').click();
     }
 }
