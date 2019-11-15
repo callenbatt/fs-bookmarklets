@@ -77,8 +77,18 @@ const getBulkOperationsMenu = async (button, operation) => {
 const setBulkUpdateMenu = async () => {
     const internal = document.querySelector('#fsBUHideFromSE[data-property="indexable_for_internal_search"]');
     const external = document.querySelector('#fsBUHideFromSE[data-property="seo_hide"]');
+    const title = document.getElementById('fsBUSEOTitle');
+    const desc = document.getElementById('fsBUSEODesc');
+    const keywords = document.getElementById('fsBUSEOKeywords');
+    const nav = document.getElementById('fsBUHideNavigation');
+    const ssl = document.getElementById('fsBUUseTLS');
     internal.value = '0';
     external.value = '1';
+    title.value = "";
+    desc.value = "";
+    keywords.value = "";
+    nav.value = "0";
+    ssl.value = "1";
     document.querySelector('.fsAppModalCompleteButton').click();
     return await watch(check.isModalOverlayActive);
 }
